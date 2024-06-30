@@ -1,7 +1,8 @@
 <x-layout title="HelloWorld">
     <div class="text-center w-full h-screen flex justify-center items-center">
-        <div class="h-12 hover:bg-black hover:text-white transition-colors ease-in-out duration-500">
-            <h1 class="text-5xl hover:bg-black hover:text-white transition-all duration-300">Hello World</h1>
+        <div class="relative group">
+            <div class="-z-30 absolute left-0 bg-black h-14 w-0 group-hover:w-full transition-all duration-500"></div>
+            <h1 class="z-40 text-5xl group-hover:text-white transition-colors">Hello World</h1>
         </div>
     </div>
 </x-layout>
