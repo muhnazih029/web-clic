@@ -2,21 +2,48 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Http\RedirectResponse;
 
 class AuthController extends Controller
 {
     public function create() //boleh make index/show juga tp paling pas create
     {
         //login view
+        return view('auth.login');
     }
-    public function store()
+    public function store(Request $request)
     {
         //login logic
+        $credentials = $request->only('username', 'password');
+
+        if (Auth::attempt($credentials)) {
+            $request->session()->regenerate();
+            $request->session()->put('user_id', Auth::user()->id);
+            $request->session()->put('username', Auth::user()->username);
+            return redirect()->intended('home');
+        }
+
+        return back()->withErrors([
+            'username' => 'The provided credentials do not match our records.',
+        ]);
     }
-    public function destroy()
+    public function destroy(Request $request): RedirectResponse
     {
         //logout logic
-    }
+        Auth::logout();
 
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return redirect('/login');
+    }
+    public function index()
+    {
+        $user = Auth::user();
+        return view('home', ['user' => $user]);
+    }
 }
