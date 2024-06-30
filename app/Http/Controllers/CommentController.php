@@ -13,7 +13,7 @@ class CommentController extends Controller
      */
     public function index()
     {
-        //
+        //Display a listing of the resource.
     }
 
     /**
@@ -21,7 +21,7 @@ class CommentController extends Controller
      */
     public function create()
     {
-        //
+        //Show the form for creating a new resource.
     }
 
     /**
@@ -29,7 +29,7 @@ class CommentController extends Controller
      */
     public function store(StoreCommentRequest $request)
     {
-        //
+        //Store a newly created resource in storage.
     }
 
     /**
@@ -37,7 +37,7 @@ class CommentController extends Controller
      */
     public function show(Comment $comment)
     {
-        //
+        //Display the specified resource
     }
 
     /**
@@ -45,7 +45,7 @@ class CommentController extends Controller
      */
     public function edit(Comment $comment)
     {
-        //
+        //Show the form for editing the specified resource
     }
 
     /**
@@ -53,7 +53,7 @@ class CommentController extends Controller
      */
     public function update(UpdateCommentRequest $request, Comment $comment)
     {
-        //
+        //Update the specified resource in storage
     }
 
     /**
@@ -61,6 +61,6 @@ class CommentController extends Controller
      */
     public function destroy(Comment $comment)
     {
-        //
+        //Remove the specified resource from storage
     }
 }

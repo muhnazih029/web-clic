@@ -6,11 +6,11 @@ use Illuminate\Http\Request;
 
 class AuthController extends Controller
 {
-    public function index()
+    public function create() //boleh make index/show juga tp paling pas create
     {
         //login view
     }
-    public function create()
+    public function store()
     {
         //login logic
     }

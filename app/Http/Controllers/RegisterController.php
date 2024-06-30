@@ -7,11 +7,11 @@ use Illuminate\Http\Request;
 class RegisterController extends Controller
 {
 
-    public function index()
+    public function create() //boleh make index/show juga tp paling pas create
     {
         //register view
     }
-    public function create()
+    public function store()
     {
         //register logic
     }
