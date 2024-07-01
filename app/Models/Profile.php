@@ -27,8 +27,8 @@ class Profile extends Model
         });
     }
 
-    public function user ():HasOne
+    public function user ():BelongsTo
     {
-        return $this->hasOne(User::class, 'userId');
+        return $this->belongsTo(User::class, 'userId');
     }
 }

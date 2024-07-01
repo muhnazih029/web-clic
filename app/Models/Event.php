@@ -32,10 +32,10 @@ class Event extends Model
     }
     public function user():BelongsTo
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'userId');
     }
     public function discussions():HasMany
     {
-        return $this->hasMany(Discussion::class);
+        return $this->hasMany(Discussion::class, 'eventId');
     }
 }

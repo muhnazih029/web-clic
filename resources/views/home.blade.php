@@ -8,8 +8,8 @@
         @csrf
         @method('DELETE')
     </form>
-    
+
     <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
         Logout
-    </a>    
+    </a>
 </x-layout>

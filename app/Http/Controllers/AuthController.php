@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\LoginRequest;
+use App\Models\Profile;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -15,8 +17,9 @@ class AuthController extends Controller
         //login view
         return view('auth.login');
     }
-    public function store(Request $request)
+    public function store(LoginRequest $request)
     {
+        // dd($request);
         //login logic
         $credentials = $request->only('username', 'password');
 
@@ -41,9 +44,10 @@ class AuthController extends Controller
 
         return redirect('/login');
     }
-    public function index()
+    public function index() //jangan disini bwang mending buat controller baru (NOTE: paling cah iki cuma nyoba2)
     {
         $user = Auth::user();
+        // dd($user[0]->profile);
         return view('home', ['user' => $user]);
     }
 }
