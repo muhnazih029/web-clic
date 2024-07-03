@@ -19,10 +19,12 @@ class AuthController extends Controller
     }
     public function store(LoginRequest $request)
     {
-        // dd($request);
         //login logic
+        // dd($request);
+        // dd($request);
         $credentials = $request->validated();
-        $credentials = $request->only('username', 'password');
+        $credentials = $request->safe()->only(['username', 'password']);
+        // dd($credentials);
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
@@ -32,7 +34,7 @@ class AuthController extends Controller
         }
 
         return back()->withErrors([
-            'username' => 'The provided credentials do not match our records.',
+            'formError' => 'The provided credentials do not match our records.',
         ]);
     }
     public function destroy(Request $request): RedirectResponse
