@@ -4,7 +4,14 @@ export default {
     "./resources/**/*.blade.php", "./resources/**/*.js", "./resources/**/*.vue"
   ],
   theme: {
-    extend: {}
+    extend: {
+      colors: {
+        primary: "#F37E1F",
+        secondary: "#342C2A",
+        teritary: "#E0DDE8",
+        neutral: "#fff"
+      }
+    }
   },
   plugins: []
 };

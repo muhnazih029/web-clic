@@ -21,6 +21,7 @@ class AuthController extends Controller
     {
         // dd($request);
         //login logic
+        $credentials = $request->validated();
         $credentials = $request->only('username', 'password');
 
         if (Auth::attempt($credentials)) {
