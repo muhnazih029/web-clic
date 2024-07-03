@@ -14,10 +14,12 @@
         href="https://cdn.jsdelivr.net/gh/Loopple/loopple-public-assets@main/motion-tailwind/motion-tailwind.css"
         rel="stylesheet">
     {{-- Galyon Font --}}
-    <link href="https://db.onlinewebfonts.com/a/7B61B1MRpahLH1UJsLxgF3U3i9Xp33YZG3vnT2MNCmN1Ln2QKleT723e" rel="stylesheet" type="text/css"/>
+    <link href="https://db.onlinewebfonts.com/a/7B61B1MRpahLH1UJsLxgF3U3i9Xp33YZG3vnT2MNCmN1Ln2QKleT723e"
+        rel="stylesheet" type="text/css" />
     <!-- <link rel="stylesheet" href="../css/style.css"> -->
     <!-- Styles -->
     @vite('resources/css/app.css')
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 </head>
 
 <body class="font-sans antialiased ">

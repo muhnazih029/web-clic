@@ -3,11 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\LoginRequest;
-use App\Models\Profile;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\RedirectResponse;
 
 class AuthController extends Controller
@@ -20,16 +18,18 @@ class AuthController extends Controller
     public function store(LoginRequest $request)
     {
         //login logic
-        // dd($request);
-        // dd($request);
-        $credentials = $request->validated();
-        $credentials = $request->safe()->only(['username', 'password']);
-        // dd($credentials);
+        $login = $request->input('login');
+        $password = $request->input('password');
 
-        if (Auth::attempt($credentials)) {
+        $user = User::where('username', $login)
+            ->orWhere('nim', $login)
+            ->first();
+
+        if ($user && Auth::attempt(['username' => $user->username, 'password' => $password])) {
             $request->session()->regenerate();
             $request->session()->put('user_id', Auth::user()->id);
             $request->session()->put('username', Auth::user()->username);
+
             return redirect()->intended('home');
         }
 
