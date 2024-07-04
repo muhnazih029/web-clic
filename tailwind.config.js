@@ -4,6 +4,11 @@ export default {
     "./resources/**/*.blade.php", "./resources/**/*.js", "./resources/**/*.vue"
   ],
   theme: {
+    fontFamily: {
+      'sans': ['Montserrat', 'ui-sans-serif', 'system-ui'],
+      'serif': ['ui-serif', 'Georgia'],
+      'mono': ['ui-monospace', 'SFMono-Regular'],
+    },
     extend: {
       colors: {
         primary: "#F37E1F",
