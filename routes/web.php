@@ -7,6 +7,9 @@ use App\Http\Controllers\RegisterController;
 Route::get('/', function () {
     return view('helloworld');
 });
+Route::get('/test', function () {
+    return view('test');
+});
 Route::group(['middleware' => 'guest'], function () {
     Route::get('/register', [RegisterController::class, 'create'])->name('register');
     Route::post('/register', [RegisterController::class, 'store'])->name('register');

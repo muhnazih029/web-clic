@@ -1,4 +1,4 @@
-<nav class="mx-auto rounded-full bg-[#333333] w-3/4 h-2/3 text-white p-5">
+<nav class="mx-auto rounded-full bg-[#333333] w-3/4 h-2/3 text-white p-5 my-5">
     <ul class="flex justify-evenly font-bold text-xl">
         @auth 
             <a href="#"><li class="hover:text-[#f37e1f]">Dashboard</li></a>
