@@ -1,9 +1,9 @@
-<nav class="mx-auto rounded-full bg-[#333333] w-3/4 h-2/3 text-white p-5 my-5">
+<nav class="rounded-full bg-[#333333] w-3/4 text-white p-5 mt-5 fixed transform -translate-x-1/2 left-1/2 z-20">
     <ul class="flex justify-evenly font-bold text-xl">
         @auth 
-            <a href="#"><li class="hover:text-[#f37e1f]">Dashboard</li></a>
-            <a href="#"><li class="hover:text-[#f37e1f]">Events</li></a>
-            <a href="#"><li class="hover:text-[#f37e1f]">Forums</li></a>
+            <li class="hover:text-[#f37e1f]"><a href="#">Dashboard</a></li>
+            <li class="hover:text-[#f37e1f]"><a href="#">Forums</a></li>
+            <li class="hover:text-[#f37e1f]"><a href="#">Events</a></li>
             <a href="#">
                 <div class="flex space-x-2">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#f37e1f" class="size-6">
@@ -17,11 +17,11 @@
             </a>
         @endauth
         @guest
-            <a href="#"><li class="hover:text-[#f37e1f]">Home</li></a>
-            <a href="#"><li class="hover:text-[#f37e1f]">About Us</li></a>
-            <a href="#"><li class="hover:text-[#f37e1f]">Gallery</li></a>
-            <a href="#"><li class="hover:text-[#f37e1f]">Events</li></a>
-            <a href="#"><li class="hover:text-[#f37e1f]">Login</li></a>
+            <li class="hover:text-[#f37e1f]"><a href="">Home</a></li>
+            <li class="hover:text-[#f37e1f]"><a href="">About Us</a></li>
+            <li class="hover:text-[#f37e1f]"><a href="">Gallery</a></li>
+            <li class="hover:text-[#f37e1f]"><a href="">Events</a></li>
+            <li class="hover:text-[#f37e1f]"><a href="">Login</a></li>
         @endguest
     </ul>
 </nav>
