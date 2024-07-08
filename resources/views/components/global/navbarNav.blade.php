@@ -1,0 +1,1 @@
+<li class="hover:text-[#f37e1f]"><a href="{{ $link }}">{{ $text }}</a></li>
