@@ -1,3 +1,3 @@
-<x-layout title="Dashboard">
+<x-layouts title="Dashboard">
     Halaman Dashboard
-</x-layout>
+</x-layouts>

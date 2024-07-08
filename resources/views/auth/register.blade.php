@@ -1,4 +1,4 @@
-<x-layout.auth title="Register">
+<x-layouts.auth title="Register">
             <x-auth.asset-section class="block md:hidden" />
             <x-auth.form-section action="">
                 <div class="flex flex-col space-y-3 ">
@@ -14,4 +14,4 @@
                 </div>
             </x-auth.form-section>
             <x-auth.asset-section class="hidden md:block" />
-</x-layout.auth>
+</x-layouts.auth>

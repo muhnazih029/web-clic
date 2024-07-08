@@ -1,3 +1,3 @@
-<x-layout title="Disscussions">
+<x-layouts title="Disscussions">
     Halaman Disscussions
-</x-layout>
+</x-layouts>

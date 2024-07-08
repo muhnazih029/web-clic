@@ -1,4 +1,4 @@
-<x-layout title="{{ $title }}">
+<x-layouts title="{{ $title }}">
     <div class="flex items-center justify-center w-screen h-screen">
         <div class="w-full py-32 px-36 lg:px-20 lg:py-0 h-5/6" x-data={show:false}>
             <x-auth.icons />
@@ -15,4 +15,4 @@
             </main>
         </div>
     </div>
-</x-layout>
+</x-layouts>

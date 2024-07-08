@@ -1,9 +1,9 @@
-<x-layout title="Hello World">
-    <div class="text-center w-full h-screen flex justify-center items-center">
+<x-layouts title="Hello World">
+    <div class="flex items-center justify-center w-full h-screen text-center">
         <div class="relative group">
-            <div class="-z-30 absolute left-0 bg-black h-14 w-0 group-hover:w-full transition-all duration-500"></div>
-            <h1 class="z-40 text-5xl group-hover:text-white transition-colors">Hello World</h1>
+            <div class="absolute left-0 w-0 transition-all duration-500 bg-black -z-30 h-14 group-hover:w-full"></div>
+            <h1 class="z-40 text-5xl transition-colors group-hover:text-white">Hello World</h1>
         </div>
     </div>
-</x-layout>
+</x-layouts>
 

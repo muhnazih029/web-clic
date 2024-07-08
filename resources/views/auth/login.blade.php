@@ -1,4 +1,4 @@
-<x-layout.auth title="Login">
+<x-layouts.auth title="Login">
     <x-auth.asset-section />
     <x-auth.form-section action="">
         <x-auth.error-message name="formError" />
@@ -12,4 +12,4 @@
                     class="font-semibold text-primary">Join Us</a></p>
         </div>
     </x-auth.form-section>
-</x-layout.auth>
+</x-layouts.auth>
