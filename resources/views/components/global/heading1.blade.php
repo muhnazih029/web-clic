@@ -1,1 +1,1 @@
-<div class="text-3xl text-center font-extrabold {{ $color }} md:text-5xl">{{ $title }}</div>
+<div class="text-3xl text-center font-extrabold pt-10 {{ $color }} md:text-5xl">{{ $title }}</div>
