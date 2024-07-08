@@ -11,10 +11,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-<<<<<<< HEAD:resources/views/components/layout/index.blade.php
-=======
-
->>>>>>> 3840896d26042bcc5016084874c61fcab4ad06e2:resources/views/components/layouts/index.blade.php
     <!-- Styles -->
     @vite('resources/css/app.css')
 
