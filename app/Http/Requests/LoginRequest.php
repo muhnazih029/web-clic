@@ -8,10 +8,10 @@ use Illuminate\Http\Exceptions\HttpResponseException;
 
 class LoginRequest extends FormRequest
 {
-protected function failedValidation(Validator $validator)
-{
-    return back()->withError($validator->errors());
-}
+// protected function failedValidation(Validator $validator)
+// {
+//     return back()->withError($validator->errors());
+// }
     /**
      * Determine if the user is authorized to make this request.
      */
@@ -28,7 +28,7 @@ protected function failedValidation(Validator $validator)
     public function rules(): array
     {
         return [
-            'username'=>'required',
+            'userAuth'=>'required',
             'password'=>'required'
         ];
     }
