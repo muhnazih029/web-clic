@@ -18,8 +18,8 @@ class AuthController extends Controller
     public function store(LoginRequest $request)
     {
         //login logic
-        $login = $request->input('login');
-        $password = $request->input('password');
+        $login = $request->userAuth;
+        $password = $request->password;
 
         $user = User::where('username', $login)
             ->orWhere('nim', $login)

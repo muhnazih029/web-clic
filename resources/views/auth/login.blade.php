@@ -3,7 +3,7 @@
     <x-auth.form-section action="">
         <x-auth.error-message name="formError" />
         <div class="flex flex-col space-y-3 ">
-            <x-auth.text-input type="text" name="key" placeholder="Username or NIM" id="key" />
+            <x-auth.text-input type="text" name="userAuth" placeholder="Username or NIM" id="userAuth" />
             <x-auth.text-input type="password" name="password" placeholder="Password" id="password" />
         </div>
         <div class="mt-10 text-center ">
