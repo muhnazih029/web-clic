@@ -1,8 +1,8 @@
 <x-layouts title="Test">
     <x-navbar />
-    <div class="relative w-screen">
+    <div class="relative">
         {{-- Home Section --}}
-        <section class="bg-cover bg-bottom h-[900px] md:h-[1200px]" style="background-image:url(img/bg-image-home.png)">
+        <section class="bg-cover bg-bottom h-[900px] md:h-screen" style="background-image:url(img/bg-image-home.png)">
             <div class="w-11/12 mx-auto pt-28 md:flex md:w-3/4">
                 <div class="flex">
                     <div class="w-12 h-12 container-xs md:w-fit md:h-fit">
@@ -21,9 +21,9 @@
             </div>
         </section>
         {{-- gradient --}}
-        <div class="bg-gradient-to-t from-white from-5% to-40% absolute w-full top-0 z-10 h-[900px] md:h-[1200px]"></div>
+        <div class="bg-gradient-to-t from-white from-5% to-40% absolute w-screen top-0 z-10 h-[900px] md:h-screen"></div>
         {{-- About Section --}}
-        <section class="w-screen h-screen pt-40 -mt-32" id="about">
+        <section class="w-screen h-screen pt-32 -mt-32 lg:pt-40" id="about">
             <x-heading title="About" color="text-black" />
             <div class="flex flex-row justify-center mt-10">
                 <div class="px-5">
@@ -61,7 +61,7 @@
                     <p>Belajar</p>
                 </div>
             </div>
-            <div class="flex flex-col justify-center mx-auto h-fit bg-slate md:flex-row md:w-3/5">
+            <div class="flex flex-col justify-center mx-auto h-fit bg-slate md:flex-row md:w-3/5 md:gap-10">
                 <div class="w-8/12 pt-10 mx-auto">
                     <img src="img/images-stack.png" alt="">
                 </div>
@@ -73,7 +73,7 @@
         </section>
     </div>
     {{-- Gallery Section --}}
-    <section id="gallery" class="w-screen h-screen pt-40 -mt-16 bg-secondary">
+    <section id="gallery" class="w-screen h-screen pt-32 -mt-16 lg:pt-40 bg-secondary">
         <x-heading title="Galeri" color="text-white" />
     </section>
 </x-layouts>
