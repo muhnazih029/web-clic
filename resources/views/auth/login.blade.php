@@ -1,7 +1,9 @@
 <x-layouts.auth title="Login">
     <x-auth.asset-section />
     <x-auth.form-section action="">
-        <x-auth.error-message name="formError" />
+        <x-toast name="formError" />
+        <x-toast name="info" />
+        <x-toast name="success" />
         <div class="flex flex-col space-y-3 ">
             <x-auth.text-input type="text" name="userAuth" placeholder="Username or NIM" id="userAuth" />
             <x-auth.text-input type="password" name="password" placeholder="Password" id="password" />

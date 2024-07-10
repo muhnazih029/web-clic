@@ -1,4 +1,5 @@
 <x-layouts title="Home">
+    <x-toast name="success" />
     <h1 class="text-4xl font-bold">Halaman Home</h1>
     <br>
     <p class="font-semibold">Selamat Datang Mas {{ Auth::user()->username }}!</p>

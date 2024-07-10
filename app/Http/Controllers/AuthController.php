@@ -30,7 +30,7 @@ class AuthController extends Controller
             $request->session()->put('user_id', Auth::user()->id);
             $request->session()->put('username', Auth::user()->username);
 
-            return redirect()->intended('home');
+            return redirect()->intended('home')->with('success', 'Login successful. Welcome Back, '.$user->username. '!');
         }
 
         return back()->withErrors([
@@ -45,7 +45,7 @@ class AuthController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return redirect('/login');
+        return redirect('/login')->with('info', 'Logout successful.');
     }
     public function index() //jangan disini bwang mending buat controller baru (NOTE: paling cah iki cuma nyoba2)
     {
