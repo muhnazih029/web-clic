@@ -1,6 +1,6 @@
 <x-layouts title="{{ $title }}">
     <div class="flex items-center justify-center w-screen h-screen">
-        <div class="w-full py-32 px-36 lg:px-20 lg:py-0 h-5/6" x-data={show:false}>
+        <div class="w-full px-20 py-0 md:py-32 md:px-36 lg:px-20 lg:py-0 h-5/6" x-data={show:false}>
             <x-auth.icons />
             <nav class="w-full">
                 <x-auth.back href="/" />
