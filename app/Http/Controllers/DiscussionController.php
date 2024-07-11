@@ -31,17 +31,17 @@ class DiscussionController extends Controller
     public function store(StoreDiscussionRequest $request)
     {
         $validated = $request->validated();
-
+        // dd($validated);
         // Cek apakah eventId ada di tabel events
-        $eventExists = \App\Models\Event::where('id', $request->input('eventId'))->exists();
+        // $eventExists = \App\Models\Event::where('id', $request->input('eventId'))->exists();
 
-        if (!$eventExists) {
-            return redirect()->back()->withErrors(['eventId' => 'Event ID tidak valid.']);
-        }
+        // if (!$eventExists) {
+        //     return redirect()->back()->withErrors(['eventId' => 'Event ID tidak valid.']);
+        // }
 
         $discussion = new Discussion();
         $discussion->uuid = Str::uuid();
-        $discussion->eventId = $request->input('eventId');
+        // $discussion->eventId = $request->input('eventId');
         $discussion->content = $validated['content'];
 
         if ($request->hasFile('image')) {
@@ -50,9 +50,14 @@ class DiscussionController extends Controller
         }
 
         $discussion->userId = auth()->id();
+        // dd($discussion);
+        // dd($filePath, $discussion);
         $discussion->save();
 
-        return redirect()->route('home')->with('success', 'Diskusi berhasil dibuat!');
+        //!!INI ERROR BG
+        // return redirect()->route('home')->with('success', 'Diskusi berhasil dibuat!');
+        //?? INI YANG BENER
+        return redirect()->intended('home')->with('success', 'Discussion has been created!');
     }
 
 
