@@ -11,8 +11,9 @@
     </form>
 
     <h2 class="mt-8 mb-4 text-xl font-semibold">Coba Tombol Di Bawah ini</h2>
-<br>
+    <br>
 
+    <!-- Discussion -->
     <div x-data="{ showModal: false }">
         <!-- Button to Open the Modal for Discussion -->
         <button type="button"
@@ -21,7 +22,7 @@
             Buat Diskusi Baru
         </button>
         <!-- Modal for Discussion -->
-        <div x-show="showModal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50" >
+        <div x-show="showModal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
             <div class="p-6 bg-white rounded-lg shadow-lg w-96" @click.outside="showModal = false">
                 <!-- Modal Header -->
                 <div class="flex items-center justify-between mb-4">
@@ -48,8 +49,9 @@
             </div>
         </div>
     </div>
-<br>
+    <br>
 
+    <!-- Event -->
     <div x-data="{ showModal: false }">
         <!-- Button to Open the Modal for Event -->
         <button type="button"
@@ -58,7 +60,7 @@
             Buat Event Baru
         </button>
         <!-- Modal for Event -->
-        <div x-show="showModal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50" >
+        <div x-show="showModal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
             <div class="p-6 bg-white rounded-lg shadow-lg w-96" @click.outside="showModal = false">
                 <!-- Modal Header -->
                 <div class="flex items-center justify-between mb-4">

@@ -27,7 +27,7 @@ class StoreEventRequest extends FormRequest
             'content' => 'required|string',
             'date' => 'required|date',
             'location' => 'required|string|max:255',
-            'locationUrl' => 'nullable|url',
+            // 'locationUrl' => 'nullable|url', //!! ERROR DISINI
         ];
     }
 }

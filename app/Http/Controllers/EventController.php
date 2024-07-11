@@ -30,8 +30,9 @@ class EventController extends Controller
      */
     public function store(StoreEventRequest $request)
     {
-        $validated = $request->validated();
-
+        // dd($request);
+        $validated = $request->validated(); //!! ERROR DI RULENYAH, BENERIN SENDIRI YAH
+        // dd($validated);
         $event = new Event();
         $event->uuid = Str::uuid();
         $event->name = $validated['name'];
@@ -46,9 +47,11 @@ class EventController extends Controller
         }
 
         $event->userId = auth()->id();
+        // dd($event);
         $event->save();
 
-        return redirect()->route('home')->with('success', 'Event berhasil dibuat!');
+        //?? UDH TA BENERIN REDIRECTNYA
+        return redirect()->intended('home')->with('success', 'Event berhasil dibuat!');
     }
 
     /**
