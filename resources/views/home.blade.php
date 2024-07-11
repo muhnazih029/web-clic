@@ -22,7 +22,7 @@
             Buat Diskusi Baru
         </button>
         <!-- Modal for Discussion -->
-        <div x-show="showModal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+        <div x-show="showModal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 d-none">
             <div class="p-6 bg-white rounded-lg shadow-lg w-96" @click.outside="showModal = false">
                 <!-- Modal Header -->
                 <div class="flex items-center justify-between mb-4">
@@ -60,7 +60,8 @@
             Buat Event Baru
         </button>
         <!-- Modal for Event -->
-        <div x-show="showModal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+
+        <div x-show="showModal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 d-none">
             <div class="p-6 bg-white rounded-lg shadow-lg w-96" @click.outside="showModal = false">
                 <!-- Modal Header -->
                 <div class="flex items-center justify-between mb-4">
@@ -103,6 +104,7 @@
                 </form>
             </div>
         </div>
+
     </div>
 
     <br>
