@@ -6,8 +6,6 @@ export default {
   theme: {
     fontFamily: {
       'sans': ['Montserrat', 'ui-sans-serif', 'system-ui'],
-      'serif': ['ui-serif', 'Georgia'],
-      'mono': ['ui-monospace', 'SFMono-Regular'],
     },
     extend: {
       colors: {
