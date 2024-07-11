@@ -2,7 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\EventController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\DiscussionController;
 
 Route::get('/', function () {
     return view('helloworld');
@@ -22,4 +24,6 @@ Route::group(['middleware' => 'auth'], function () {
     });
     Route::get('/home', [AuthController::class, 'index'])->name('userLogin');
     Route::delete('/logout', [AuthController::class, 'destroy'])->name('logout');
+    Route::resource('discussions', DiscussionController::class);
+    Route::resource('events', EventController::class);
 });

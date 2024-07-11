@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Discussion;
+use Illuminate\Support\Str;
 use App\Http\Requests\StoreDiscussionRequest;
 use App\Http\Requests\UpdateDiscussionRequest;
 
@@ -29,8 +30,31 @@ class DiscussionController extends Controller
      */
     public function store(StoreDiscussionRequest $request)
     {
-        //
+        $validated = $request->validated();
+
+        // Cek apakah eventId ada di tabel events
+        $eventExists = \App\Models\Event::where('id', $request->input('eventId'))->exists();
+
+        if (!$eventExists) {
+            return redirect()->back()->withErrors(['eventId' => 'Event ID tidak valid.']);
+        }
+
+        $discussion = new Discussion();
+        $discussion->uuid = Str::uuid();
+        $discussion->eventId = $request->input('eventId');
+        $discussion->content = $validated['content'];
+
+        if ($request->hasFile('image')) {
+            $filePath = $request->file('image')->store('public/images');
+            $discussion->image = basename($filePath);
+        }
+
+        $discussion->userId = auth()->id();
+        $discussion->save();
+
+        return redirect()->route('home')->with('success', 'Diskusi berhasil dibuat!');
     }
+
 
     /**
      * Display the specified resource.
