@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Event;
-use Illuminate\Support\Str;
 use App\Http\Requests\StoreEventRequest;
 use App\Http\Requests\UpdateEventRequest;
 
@@ -14,7 +13,8 @@ class EventController extends Controller
      */
     public function index()
     {
-        //
+        $events = Event::all();
+        return view('events', compact('events'));
     }
 
     /**
@@ -22,19 +22,19 @@ class EventController extends Controller
      */
     public function create()
     {
-        //
+        // Tidak Menggunakan Create Karena Sudah Dimasukkkan ke Modal
     }
 
     /**
      * Store a newly created resource in storage.
      */
     public function store(StoreEventRequest $request)
-    {
+    { 
         // dd($request);
-        $validated = $request->validated(); //!! ERROR DI RULENYAH, BENERIN SENDIRI YAH
+        $validated = $request->validated(); //!! ERROR DI RULENYAH, BENERIN SENDIRI YAH 
         // dd($validated);
         $event = new Event();
-        $event->uuid = Str::uuid();
+        // $event->uuid = Str::uuid();
         $event->name = $validated['name'];
         $event->content = $validated['content'];
         $event->date = $validated['date'];
@@ -42,7 +42,7 @@ class EventController extends Controller
         $event->locationUrl = $validated['locationUrl'];
 
         if ($request->hasFile('image')) {
-            $filePath = $request->file('image')->store('public/images');
+            $filePath = $request->file('image')->store('public/img');
             $event->image = basename($filePath);
         }
 
@@ -59,7 +59,7 @@ class EventController extends Controller
      */
     public function show(Event $event)
     {
-        //
+        return view('dashboard', compact('event'));
     }
 
     /**
@@ -67,7 +67,7 @@ class EventController extends Controller
      */
     public function edit(Event $event)
     {
-        //
+        // Tidak Perlu Karena Sudah Menggunakan Modal Bukan ke Halaman Baru
     }
 
     /**
@@ -75,7 +75,23 @@ class EventController extends Controller
      */
     public function update(UpdateEventRequest $request, Event $event)
     {
-        //
+        $validated = $request->validated();
+        $event->name = $validated['name'];
+        $event->content = $validated['content'];
+        $event->date = $validated['date'];
+        $event->location = $validated['location'];
+        $event->locationUrl = $validated['locationUrl'];
+
+        if ($request->hasFile('image')) {
+            $filePath = $request->file('image')->store('public/img');
+            $event->image = basename($filePath);
+        }
+
+        $event->save();
+        if ($event->user_id !== auth()->id()) {
+            abort(403, 'Unauthorized action.');
+        }
+        return redirect()->route('dashboard')->with('success', 'Event berhasil diupdate!');
     }
 
     /**
@@ -83,6 +99,8 @@ class EventController extends Controller
      */
     public function destroy(Event $event)
     {
-        //
+        $event->delete();
+        // return redirect()->route('events.index')->with('success', 'Event berhasil dihapus!');
+        return redirect()->route('dashboard')->with('success', 'Event berhasil dihapus!');
     }
 }

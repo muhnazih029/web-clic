@@ -4,14 +4,13 @@
     <br>
     <p class="font-semibold">Selamat Datang Mas {{ Auth::user()->username }}!</p>
 
-    <p>Coba Keluar Mas {{ Auth::user()->username }}!</p>
+    <h2>Mau Masuk Dashboard? Boleh <a href="/dashboard" class="hover:underline">Sini</a></h2>
     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
         @csrf
         @method('DELETE')
     </form>
 
     <h2 class="mt-8 mb-4 text-xl font-semibold">Coba Tombol Di Bawah ini</h2>
-    <br>
 
     <!-- Discussion -->
     <div x-data="{ showModal: false }">
@@ -60,7 +59,6 @@
             Buat Event Baru
         </button>
         <!-- Modal for Event -->
-
         <div x-show="showModal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 d-none" x-transition>
             <div class="p-6 bg-white rounded-lg shadow-lg w-96" @click.outside="showModal = false">
                 <!-- Modal Header -->
@@ -107,7 +105,7 @@
 
     </div>
 
-    <br>
+    <p>Coba Keluar Mas {{ Auth::user()->username }}!</p>
     <a href="{{ route('logout') }}"
         onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
         Logout
