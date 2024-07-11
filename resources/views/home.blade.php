@@ -11,22 +11,22 @@
     </form>
 
     <h2 class="mt-8 mb-4 text-xl font-semibold">Coba Tombol Di Bawah ini</h2>
+<br>
 
-    <!-- Button to Open the Modal for Discussion -->
-    <button type="button"
-        class="px-4 py-2 bg-blue-500 text-white rounded-md shadow-md hover:bg-blue-600 focus:outline-none focus:bg-blue-600"
-        @click="showDiscussionModal = true">
-        Buat Diskusi Baru
-    </button>
-
-    <!-- Modal for Discussion -->
-    <div x-data="{ showDiscussionModal: false }">
-        <div x-show="showDiscussionModal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
-            <div class="bg-white p-6 rounded-lg shadow-lg w-96">
+    <div x-data="{ showModal: false }">
+        <!-- Button to Open the Modal for Discussion -->
+        <button type="button"
+            class="px-4 py-2 text-white bg-blue-500 rounded-md shadow-md hover:bg-blue-600 focus:outline-none focus:bg-blue-600"
+            @click="showModal = true">
+            Buat Diskusi Baru
+        </button>
+        <!-- Modal for Discussion -->
+        <div x-show="showModal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50" >
+            <div class="p-6 bg-white rounded-lg shadow-lg w-96" @click.outside="showModal = false">
                 <!-- Modal Header -->
-                <div class="flex justify-between items-center mb-4">
+                <div class="flex items-center justify-between mb-4">
                     <h5 class="text-xl font-bold">Buat Diskusi Baru</h5>
-                    <button @click="showDiscussionModal = false" class="text-xl">&times;</button>
+                    <button @click="showModal = false" class="text-xl">&times;</button>
                 </div>
                 <!-- Modal Body -->
                 <form id="discussion-form" action="{{ route('discussions.store') }}" method="POST"
@@ -43,27 +43,27 @@
                         <input type="file" class="border rounded-md" id="image" name="image">
                     </div>
                     <button type="submit"
-                        class="px-4 py-2 bg-blue-500 text-white rounded-md shadow-md hover:bg-blue-600 focus:outline-none focus:bg-blue-600">Submit</button>
+                        class="px-4 py-2 text-white bg-blue-500 rounded-md shadow-md hover:bg-blue-600 focus:outline-none focus:bg-blue-600">Submit</button>
                 </form>
             </div>
         </div>
     </div>
+<br>
 
-    <!-- Button to Open the Modal for Event -->
-    <button type="button"
-        class="px-4 py-2 bg-green-500 text-white rounded-md shadow-md hover:bg-green-600 focus:outline-none focus:bg-green-600"
-        @click="showEventModal = true">
-        Buat Event Baru
-    </button>
-
-    <!-- Modal for Event -->
-    <div x-data="{ showEventModal: false }">
-        <div x-show="showEventModal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
-            <div class="bg-white p-6 rounded-lg shadow-lg w-96">
+    <div x-data="{ showModal: false }">
+        <!-- Button to Open the Modal for Event -->
+        <button type="button"
+            class="px-4 py-2 text-white bg-green-500 rounded-md shadow-md hover:bg-green-600 focus:outline-none focus:bg-green-600"
+            @click="showModal = true">
+            Buat Event Baru
+        </button>
+        <!-- Modal for Event -->
+        <div x-show="showModal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50" >
+            <div class="p-6 bg-white rounded-lg shadow-lg w-96" @click.outside="showModal = false">
                 <!-- Modal Header -->
-                <div class="flex justify-between items-center mb-4">
+                <div class="flex items-center justify-between mb-4">
                     <h5 class="text-xl font-bold">Buat Event Baru</h5>
-                    <button @click="showEventModal = false" class="text-xl">&times;</button>
+                    <button @click="showModal = false" class="text-xl">&times;</button>
                 </div>
                 <!-- Modal Body -->
                 <form id="event-form" action="{{ route('events.store') }}" method="POST" enctype="multipart/form-data">
@@ -97,12 +97,13 @@
                             name="locationUrl">
                     </div>
                     <button type="submit"
-                        class="px-4 py-2 bg-blue-500 text-white rounded-md shadow-md hover:bg-blue-600 focus:outline-none focus:bg-blue-600">Submit</button>
+                        class="px-4 py-2 text-white bg-blue-500 rounded-md shadow-md hover:bg-blue-600 focus:outline-none focus:bg-blue-600">Submit</button>
                 </form>
             </div>
         </div>
     </div>
 
+    <br>
     <a href="{{ route('logout') }}"
         onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
         Logout
