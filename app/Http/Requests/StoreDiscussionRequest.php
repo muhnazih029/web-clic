@@ -24,6 +24,7 @@ class StoreDiscussionRequest extends FormRequest
         return [
             'content' => 'required|string',
             'image' => 'nullable|image|max:2048',
+            'eventId'=>'nullable|integer'
         ];
     }
 }
