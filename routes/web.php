@@ -26,6 +26,6 @@ Route::group(['middleware' => 'auth'], function () {
     Route::delete('/logout', [AuthController::class, 'destroy'])->name('logout');
     Route::resource('discussions', DiscussionController::class);
     Route::resource('events', EventController::class);
-    // Route::put('/events/{event}', [EventController::class, 'update'])->name('events.update');
+    Route::put('/events/{event}', [EventController::class, 'update'])->name('events.update');
 
 });

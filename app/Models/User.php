@@ -55,7 +55,7 @@ class User extends Authenticatable
     {
         return $this->hasMany(Event::class, 'userId');
     }
-    public function disscussions():HasMany
+    public function discussions():HasMany
     {
         return $this->hasMany(Discussion::class, 'userId');
     }

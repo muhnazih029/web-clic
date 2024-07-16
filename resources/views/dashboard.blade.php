@@ -1,5 +1,6 @@
 <x-layouts title="Dashboard">
     <x-toast name="success" />
+    <x-toast name="danger" />
 
     <h1 class="text-4xl font-bold">Dashboard</h1>
     <br>
@@ -89,6 +90,7 @@
                                             <button
                                                 @click="event = {{ json_encode($event) }}; showEditEventModal = true"
                                                 class="text-indigo-600 hover:text-indigo-900">Update</button>
+
                                             <form action="{{ route('events.destroy', $event->id) }}" method="POST"
                                                 class="inline-block">
                                                 @csrf
@@ -99,68 +101,71 @@
                                             </form>
                                         </td>
                                     </tr>
-                                    <!-- Modal for Editing Event -->
-                                    <div x-show="showEditEventModal"
-                                        class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
-                                        <div class="bg-white p-6 rounded-lg shadow-lg w-96">
-                                            <!-- Modal Header -->
-                                            <div class="flex justify-between items-center mb-4">
-                                                <h5 class="text-xl font-bold">Edit Event</h5>
-                                                <button @click="showEditEventModal = false"
-                                                    class="text-xl">&times;</button>
-                                            </div>
-                                            <!-- Modal Body -->
-                                            <form id="edit-event-form"
-                                                :action="'/events/' + event.id" method="POST"
-                                                enctype="multipart/form-data">
-                                                @csrf
-                                                @method('PUT')
-                                                <div class="mb-4">
-                                                    <label for="edit-name" class="block mb-2">Nama Event:</label>
-                                                    <input type="text" class="w-full px-3 py-2 border rounded-md"
-                                                        id="edit-name" name="name" x-model="event.name"  required>
-                                                </div>
-                                                <div class="mb-4">
-                                                    <label for="edit-image" class="block mb-2">Image:</label>
-                                                    <input type="file" class="border rounded-md" id="edit-image"
-                                                        name="image">
-                                                    <img :src="`/storage/img/${event.image}`" alt="Event Image"
-                                                        class="mt-4">
-                                                </div>
-                                                <div class="mb-4">
-                                                    <label for="edit-content" class="block mb-2">Content:</label>
-                                                    <textarea class="w-full px-3 py-2 border rounded-md" id="edit-content" name="content" x-model="event.content"
-                                                        required></textarea>
-                                                </div>
-                                                <div class="mb-4">
-                                                    <label for="edit-date" class="block mb-2">Tanggal:</label>
-                                                    <input type="date" class="w-full px-3 py-2 border rounded-md"
-                                                        id="edit-date" name="date" x-model="event.date" required>
-                                                </div>
-                                                <div class="mb-4">
-                                                    <label for="edit-location" class="block mb-2">Lokasi:</label>
-                                                    <input type="text" class="w-full px-3 py-2 border rounded-md"
-                                                        id="edit-location" name="location" x-model="event.location"
-                                                        required>
-                                                </div>
-                                                <div class="mb-4">
-                                                    <label for="edit-locationUrl" class="block mb-2">URL
-                                                        Lokasi:</label>
-                                                    <input type="text" class="w-full px-3 py-2 border rounded-md"
-                                                        id="edit-locationUrl" name="locationUrl"
-                                                        x-model="event.locationUrl">
-                                                </div>
-                                                <button type="submit"
-                                                    class="px-4 py-2 bg-blue-500 text-white rounded-md shadow-md hover:bg-blue-600 focus:outline-none focus:bg-blue-600">Update</button>
-                                            </form>
-                                        </div>
-                                    </div>
                                 @endforeach
+                                <!-- Modal for Editing Event -->
+                                <div x-show="showEditEventModal"
+                                    class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+                                    <div class="bg-white p-6 rounded-lg shadow-lg w-96">
+                                        <!-- Modal Header -->
+                                        <div class="flex justify-between items-center mb-4">
+                                            <h5 class="text-xl font-bold">Edit Event</h5>
+                                            <button @click="showEditEventModal = false" class="text-xl">&times;</button>
+                                        </div>
+                                        <!-- Modal Body -->
+                                        <form id="edit-event-form"
+                                            :action="`{{ route('events.update', '') }}/${event.id}`" method="POST"
+                                            enctype="multipart/form-data">
+                                            @csrf
+                                            @method('PUT')
+                                            <div class="mb-4">
+                                                <label for="edit-name" class="block mb-2">Nama Event:</label>
+                                                <input type="text" class="w-full px-3 py-2 border rounded-md"
+                                                    id="edit-name" name="name" x-model="event.name" required>
+                                            </div>
+                                            <div class="mb-4">
+                                                <label for="edit-image" class="block mb-2">Image:</label>
+                                                <input type="file" class="border rounded-md" id="edit-image"
+                                                    name="image">
+                                                <img :src="`/storage/img/${event.image}`" alt="Event Image"
+                                                    class="mt-4">
+                                            </div>
+                                            <div class="mb-4">
+                                                <label for="edit-content" class="block mb-2">Content:</label>
+                                                <textarea class="w-full px-3 py-2 border rounded-md" id="edit-content" name="content" x-model="event.content"
+                                                    required></textarea>
+                                            </div>
+                                            <div class="mb-4">
+                                                <label for="edit-date"
+                                                    class="block text-sm font-medium text-gray-700">Date &
+                                                    Time</label>
+                                                <input type="datetime-local"
+                                                    class="w-full px-3 py-2 border rounded-md" id="edit-date"
+                                                    name="date" x-model="event.date" required>
+                                            </div>
+                                            <div class="mb-4">
+                                                <label for="edit-location" class="block mb-2">Lokasi:</label>
+                                                <input type="text" class="w-full px-3 py-2 border rounded-md"
+                                                    id="edit-location" name="location" x-model="event.location"
+                                                    required>
+                                            </div>
+                                            <div class="mb-4">
+                                                <label for="edit-locationUrl" class="block mb-2">URL
+                                                    Lokasi:</label>
+                                                <input type="text" class="w-full px-3 py-2 border rounded-md"
+                                                    id="edit-locationUrl" name="locationUrl"
+                                                    x-model="event.locationUrl">
+                                            </div>
+                                            <button type="submit"
+                                                class="px-4 py-2 bg-blue-500 text-white rounded-md shadow-md hover:bg-blue-600 focus:outline-none focus:bg-blue-600">Update</button>
+                                        </form>
+                                    </div>
+                                </div>
                             @endif
                         </tbody>
                     </table>
                 </div>
             </div>
         @endforeach
+
     </div>
 </x-layouts>

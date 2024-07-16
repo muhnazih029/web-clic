@@ -31,7 +31,7 @@ class EventController extends Controller
     public function store(StoreEventRequest $request)
     { 
         // dd($request);
-        $validated = $request->validated(); //!! ERROR DI RULENYAH, BENERIN SENDIRI YAH 
+        $validated = $request->validated();
         // dd($validated);
         $event = new Event();
         // $event->uuid = Str::uuid();
@@ -75,6 +75,11 @@ class EventController extends Controller
      */
     public function update(UpdateEventRequest $request, Event $event)
     {
+        // dd($event->userId);
+        if ($event->userId !== auth()->id()) {
+            return redirect()->route('dashboard')->with('danger', 'Anda tidak memiliki izin untuk mengubah event ini.');
+        }
+
         $validated = $request->validated();
         $event->name = $validated['name'];
         $event->content = $validated['content'];
@@ -86,12 +91,9 @@ class EventController extends Controller
             $filePath = $request->file('image')->store('public/img');
             $event->image = basename($filePath);
         }
-
         $event->save();
-        if ($event->user_id !== auth()->id()) {
-            abort(403, 'Unauthorized action.');
-        }
-        return redirect()->route('dashboard')->with('success', 'Event berhasil diupdate!');
+        
+        return redirect()->route('dashboard')->with('success', 'Event successfully updated!');
     }
 
     /**

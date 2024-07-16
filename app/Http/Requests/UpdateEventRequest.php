@@ -11,7 +11,7 @@ class UpdateEventRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,12 @@ class UpdateEventRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'name' => 'required|string|max:255',
+            'content' => 'required|string',
+            'date' => 'required|date',
+            'location' => 'required|string',
+            'locationUrl' => 'nullable|url',
+            'image' => 'nullable|image|max:2048',
         ];
     }
 }
