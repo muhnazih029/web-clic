@@ -44,13 +44,13 @@
         </section>
     </div>
     {{-- Gallery Section --}}
-    <section id="gallery" class="w-screen h-screen bg-secondary pt-32 -mt-16 md:pt-20 lg:pt-40">
+    <section id="gallery" class="w-screen h-screen bg-secondary pt-24 -mt-10 md:pt-20 lg:pt-40">
         <x-heading title="Galeri" color="text-white" />
         <x-horizontal-image-scroll/>
         <x-horizontal-image-scroll/>
-        <button class="mx-auto text-center bg-primary text-white p-3 rounded-full w-24">More ></button>
+        <div class="flex md:-mt-5">
+            <button class="mx-auto text-center bg-primary text-white p-3 rounded-full w-24">More ></button>
+        </div>
     </section>
-     {{-- gradient --}}
-     <div class="bg-gradient-to-t from-white from-5% to-40% absolute w-screen z-10 h-[900px] md:h-screen"></div>
     
 </x-layouts>
