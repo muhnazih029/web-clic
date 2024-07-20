@@ -1,5 +1,5 @@
-<div class="overflow-x-auto w-full hide-scrollbar">
-    <div class="flex flex-row mx-auto px-auto pt-5 md:pt-10">
+<div class="w-full overflow-x-auto overflow-y-hidden hide-scrollbar">
+    <div class="flex flex-row pt-5 mx-auto px-auto md:pt-10">
         <x-horizontal-image-scroll.image name="banner" />
         <x-horizontal-image-scroll.image name="banner" />
         <x-horizontal-image-scroll.image name="banner" />
