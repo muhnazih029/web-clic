@@ -21,7 +21,8 @@
             </div>
         </section>
         {{-- gradient --}}
-        <div class="bg-gradient-to-t from-white from-5% to-40% absolute w-screen top-0 z-10 h-[900px] md:h-screen"></div>
+        <div class="bg-gradient-to-t from-white from-5% to-40% absolute w-screen top-0 z-10 h-[900px] md:h-screen">
+        </div>
         {{-- About Section --}}
         <section class="w-screen h-screen pt-32 -mt-32 lg:pt-40" id="about">
             <x-heading title="About" color="text-black" />
@@ -53,4 +54,21 @@
         </div>
     </section>
     
+    <div class="relative">
+        {{-- Gallery Section --}}
+        <section id="gallery" class="flex flex-col w-screen h-screen pt-32 -mt-16 bg-secondary md:pt-20 lg:pt-40">
+            <x-heading title="Galeri" color="text-white" />
+            <x-horizontal-image-scroll />
+            <x-horizontal-image-scroll />
+            <x-horizontal-image-scroll />
+            <button class="relative z-20 px-10 py-3 mx-auto text-center text-white rounded-full bottom-20 bg-primary ">More ></button>
+        </section>
+        {{-- gradient --}}
+        <div class="bg-gradient-to-t from-white from-5% to-40% absolute top-0 w-screen z-10 h-[900px] md:h-screen"></div>
+        <section id="events" class="flex flex-col w-screen h-screen pt-32 -mt-16 bg- md:pt-20 lg:pt-40">
+            <x-heading title="Events" color="text-black" />
+
+        </section>
+    </div>
+
 </x-layouts>
